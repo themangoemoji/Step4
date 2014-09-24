@@ -33,13 +33,17 @@
 #define ID_LANDSCAPING_BIGTREES         32790
 #define ID_LANDSCAPING_ROAD             32791
 #define ID_BUSINESSES_COALMINE          32793
+#define ID_ZONING_NONE                  32794
+#define ID_ZONING_RESIDENTIAL           32795
+#define ID_ZONING_INDUSTRIAL            32796
+#define ID_ZONING_AGRICULTURAL          32797
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        317
-#define _APS_NEXT_COMMAND_VALUE         32794
+#define _APS_NEXT_COMMAND_VALUE         32798
 #define _APS_NEXT_CONTROL_VALUE         1002
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

@@ -12,6 +12,8 @@
 #include "TileBuilding.h"
 #include "TileRoad.h"
 #include "TileCoalmine.h"
+#include "City.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -77,6 +79,14 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
     ON_COMMAND(ID_LANDSCAPING_ROAD, &CChildView::OnLandscapingRoad)
     ON_COMMAND(ID_BUSINESSES_COALMINE, &CChildView::OnBusinessesCoalmine)
     ON_WM_LBUTTONDBLCLK()
+	ON_COMMAND(ID_ZONING_NONE, &CChildView::OnZoningNone)
+	ON_UPDATE_COMMAND_UI(ID_ZONING_NONE, &CChildView::OnUpdateZoningNone)
+	ON_COMMAND(ID_ZONING_RESIDENTIAL, &CChildView::OnZoningResidential)
+	ON_UPDATE_COMMAND_UI(ID_ZONING_RESIDENTIAL, &CChildView::OnUpdateZoningResidential)
+	ON_COMMAND(ID_ZONING_INDUSTRIAL, &CChildView::OnZoningIndustrial)
+	ON_UPDATE_COMMAND_UI(ID_ZONING_INDUSTRIAL, &CChildView::OnUpdateZoningIndustrial)
+	ON_COMMAND(ID_ZONING_AGRICULTURAL, &CChildView::OnZoningAgricultural)
+	ON_UPDATE_COMMAND_UI(ID_ZONING_AGRICULTURAL, &CChildView::OnUpdateZoningAgricultural)
 END_MESSAGE_MAP()
 
 
@@ -158,7 +168,7 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
         mTrashcan->GetWidth(), mTrashcan->GetHeight());
 
     /*
-     * Actually Draw the city
+     * Pen for drawing the city grid
      */
     mCity.OnDraw(&graphics);
 
@@ -168,6 +178,10 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	{
 		tile->DrawBorder(&graphics, &pen);
 	}
+
+	/*
+	* Drawing the specific zone grid
+	*/
 
     Graphics graphicsReal(dc.m_hDC);
     graphicsReal.DrawImage(&memory, 0, 0, rect.Width(), rect.Height());
@@ -463,3 +477,64 @@ void CChildView::OnBusinessesCoalmine()
 }
 
 /** \endcond */
+
+
+void CChildView::OnZoningNone()
+{
+	mFeatureNone = !mFeatureNone;
+}
+
+
+void CChildView::OnUpdateZoningNone(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(mFeatureNone); // Will check the menu option
+//	pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
+}
+
+
+void CChildView::OnZoningResidential()
+{
+	mFeatureResidential = !mFeatureResidential;
+}
+
+
+void CChildView::OnUpdateZoningResidential(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(mFeatureResidential); // Will check the menu option
+//	pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
+}
+
+
+void CChildView::OnZoningIndustrial()
+{
+	mFeatureIndustrial = !mFeatureIndustrial;
+}
+
+
+void CChildView::OnUpdateZoningIndustrial(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(mFeatureIndustrial); // Will check the menu option
+	//pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
+	//pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
+	//pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
+}
+
+
+void CChildView::OnZoningAgricultural()
+{
+	mFeatureAgricultural = !mFeatureAgricultural;
+}
+
+
+void CChildView::OnUpdateZoningAgricultural(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(mFeatureAgricultural); // Will check the menu option
+//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
+//	pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
+	
+}

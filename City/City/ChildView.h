@@ -45,6 +45,11 @@ private:
     void AddBuilding(const std::wstring &file);
     void AddLandscape(const std::wstring &file);
 
+	bool mFeatureNone = false;
+	bool mFeatureAgricultural = false;
+	bool mFeatureIndustrial = false;
+	bool mFeatureResidential = false;
+
     /// The city
     CCity   mCity;
 
@@ -89,5 +94,13 @@ public:
     afx_msg void OnBusinessesCoalmine();
     /** \endcond */
     afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	afx_msg void OnZoningNone();
+	afx_msg void OnUpdateZoningNone(CCmdUI *pCmdUI);
+	afx_msg void OnZoningResidential();
+	afx_msg void OnUpdateZoningResidential(CCmdUI *pCmdUI);
+	afx_msg void OnZoningIndustrial();
+	afx_msg void OnUpdateZoningIndustrial(CCmdUI *pCmdUI);
+	afx_msg void OnZoningAgricultural();
+	afx_msg void OnUpdateZoningAgricultural(CCmdUI *pCmdUI);
 };
 
