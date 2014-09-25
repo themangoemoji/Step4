@@ -116,6 +116,14 @@ public:
 		const ZoningIter& operator++()
 		{
 			mPos++;
+			for (auto i = mPos; i < mCity->mTiles.size(); i++)
+			{
+				if (mCity->mTiles[mPos]->GetZoning() == mZone)
+				{
+					break;
+				}
+				mPos++;
+			}
 			return *this;
 		}
 
@@ -141,6 +149,15 @@ public:
 		/** \brief Get an iterator for the beginning of the collection
 		* \returns Iter object at position 0 */
 		ZoningIter begin() { return ZoningIter(mCity, 0, mZoning); }
+			/*
+		{
+			for (auto i = mPos; i < mCity->mTiles.size(); i++)
+			{
+				if (i == mZoning)
+			}
+			return ZoningIter(mCity, 0, mZoning);
+		}
+		*/
 
 		/** \brief Get an iterator for the end of the collection
 		* \returns Iter object at position past the end */

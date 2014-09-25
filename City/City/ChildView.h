@@ -45,11 +45,6 @@ private:
     void AddBuilding(const std::wstring &file);
     void AddLandscape(const std::wstring &file);
 
-	bool mFeatureNone = false;
-	bool mFeatureAgricultural = false;
-	bool mFeatureIndustrial = false;
-	bool mFeatureResidential = false;
-
     /// The city
     CCity   mCity;
 
@@ -65,6 +60,8 @@ private:
     std::unique_ptr<Gdiplus::Bitmap> mTrashcan; ///< Trashcan image to use
     int mTrashcanTop = 0;           ///< Top line of the trashcan in pixels
     int mTrashcanRight = 0;         ///< Right side of the trashcan in pixels
+
+	CTile::Zonings mZoning = CTile::Zonings::NONE;
 
 public:
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);

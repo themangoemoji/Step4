@@ -174,14 +174,20 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 
 	Pen pen(Color::Green, 2);
 
+	/*
 	for (auto tile : mCity)
 	{
 		tile->DrawBorder(&graphics, &pen);
 	}
+	*/
 
 	/*
 	* Drawing the specific zone grid
 	*/
+	for (auto tile : mCity.GetZoning(mZoning))
+	{
+		tile->DrawBorder(&graphics, &pen);
+	}
 
     Graphics graphicsReal(dc.m_hDC);
     graphicsReal.DrawImage(&memory, 0, 0, rect.Width(), rect.Height());
@@ -481,60 +487,51 @@ void CChildView::OnBusinessesCoalmine()
 
 void CChildView::OnZoningNone()
 {
-	mFeatureNone = !mFeatureNone;
+	mZoning = CTile::Zonings::NONE;
 }
 
 
 void CChildView::OnUpdateZoningNone(CCmdUI *pCmdUI)
 {
-	pCmdUI->SetCheck(mFeatureNone); // Will check the menu option
-//	pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
+	pCmdUI->SetCheck(mZoning == CTile::Zonings::NONE); // Select the Nome menu option
+	pCmdUI->Enable(true);	// Unselect the menu option
 }
 
 
 void CChildView::OnZoningResidential()
 {
-	mFeatureResidential = !mFeatureResidential;
+	mZoning = CTile::Zonings::RESIDENTIAL;
 }
 
 
 void CChildView::OnUpdateZoningResidential(CCmdUI *pCmdUI)
 {
-	pCmdUI->SetCheck(mFeatureResidential); // Will check the menu option
-//	pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
+	pCmdUI->SetCheck(mZoning == CTile::Zonings::RESIDENTIAL); // Select the Nome menu option
+	pCmdUI->Enable(true);	// Unselect the menu option
 }
 
 
 void CChildView::OnZoningIndustrial()
 {
-	mFeatureIndustrial = !mFeatureIndustrial;
+	mZoning = CTile::Zonings::INDUSTRIAL;
 }
 
 
 void CChildView::OnUpdateZoningIndustrial(CCmdUI *pCmdUI)
 {
-	pCmdUI->SetCheck(mFeatureIndustrial); // Will check the menu option
-	//pCmdUI->Enable(mFeatureAgricultural);	// Will disable the menu option
-	//pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
-	//pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
+	pCmdUI->SetCheck(mZoning == CTile::Zonings::INDUSTRIAL); // Select the Nome menu option
+	pCmdUI->Enable(true);	// Unselect the menu option
 }
 
 
 void CChildView::OnZoningAgricultural()
 {
-	mFeatureAgricultural = !mFeatureAgricultural;
+	mZoning = CTile::Zonings::AGRICULTURAL;
 }
 
 
 void CChildView::OnUpdateZoningAgricultural(CCmdUI *pCmdUI)
 {
-	pCmdUI->SetCheck(mFeatureAgricultural); // Will check the menu option
-//	pCmdUI->Enable(mFeatureIndustrial);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureResidential);	// Will disable the menu option
-//	pCmdUI->Enable(mFeatureNone);	// Will disable the menu option
-	
+	pCmdUI->SetCheck(mZoning == CTile::Zonings::AGRICULTURAL); // Select the Nome menu option
+	pCmdUI->Enable(true);	// Unselect the menu option	
 }
