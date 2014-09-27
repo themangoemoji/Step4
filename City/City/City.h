@@ -116,9 +116,9 @@ public:
 		const ZoningIter& operator++()
 		{
 			mPos++;
-			for (auto i = mPos; i < mCity->mTiles.size(); i++)
+			for (auto iter = mPos; iter != (mCity->mTiles.size()); iter++)
 			{
-				if (mCity->mTiles[mPos]->GetZoning() == mZone)
+				if (mCity->mTiles[iter]->GetZoning() == mZone)
 				{
 					break;
 				}
@@ -148,23 +148,31 @@ public:
 
 		/** \brief Get an iterator for the beginning of the collection
 		* \returns Iter object at position 0 */
-		ZoningIter begin() { return ZoningIter(mCity, 0, mZoning); }
-			/*
+		ZoningIter begin()// { return ZoningIter(mCity, 0, mZoning); }
 		{
-			for (auto i = mPos; i < mCity->mTiles.size(); i++)
+			int beginning = 0;
+			for (auto iter = 0; iter != mCity->mTiles.size(); iter++)
 			{
-				if (i == mZoning)
+				if (mCity->mTiles[iter]->GetZoning() == mZoning )
+				{
+					// if we find the iterator, break from the for loop, this is the start of that zone
+					beginning = iter;
+					break;
+				}
 			}
-			return ZoningIter(mCity, 0, mZoning);
+			//return that iterator
+			return ZoningIter(mCity, beginning, mZoning);
 		}
-		*/
+
 
 		/** \brief Get an iterator for the end of the collection
 		* \returns Iter object at position past the end */
 		ZoningIter end() { return ZoningIter(mCity, mCity->mTiles.size(), mZoning); }
 
 	private:
+		/// The city we are iterating over
 		CCity *mCity;
+		/// The zone type we are trying to find
 		CTile::Zonings mZoning;
 	};
 

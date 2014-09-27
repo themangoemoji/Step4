@@ -1,0 +1,37 @@
+﻿Build started 9/26/2014 9:43:00 PM.
+Project "Z:\narrows On My Mac\dev\CSE335\Step4\City\City\City.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\City.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ChildView.cpp City.cpp CityApp.cpp MainFrm.cpp Tile.cpp TileBuilding.cpp TileCoalmine.cpp TileLandscape.cpp TilePropertiesDlg.cpp TileRoad.cpp TileVisitor.cpp
+  TileVisitor.cpp
+  TileRoad.cpp
+  TilePropertiesDlg.cpp
+  TileLandscape.cpp
+  TileCoalmine.cpp
+  TileBuilding.cpp
+  Tile.cpp
+  MainFrm.cpp
+  CityApp.cpp
+  City.cpp
+  ChildView.cpp
+  Generating Code...
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\narrows On My Mac\dev\CSE335\Step4\City\Debug\City.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"Z:\narrows On My Mac\dev\CSE335\Step4\City\Debug\City.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"Z:\narrows On My Mac\dev\CSE335\Step4\City\Debug\City.lib" /MACHINE:X86 Debug\City.res
+  Debug\ChildView.obj
+  Debug\City.obj
+  Debug\CityApp.obj
+  Debug\MainFrm.obj
+  Debug\stdafx.obj
+  Debug\Tile.obj
+  Debug\TileBuilding.obj
+  Debug\TileCoalmine.obj
+  Debug\TileLandscape.obj
+  Debug\TilePropertiesDlg.obj
+  Debug\TileRoad.obj
+  Debug\TileVisitor.obj
+  Debug\XmlNode.obj
+  City.vcxproj -> Z:\narrows On My Mac\dev\CSE335\Step4\City\Debug\City.exe
+Done Building Project "Z:\narrows On My Mac\dev\CSE335\Step4\City\City\City.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:16.43
